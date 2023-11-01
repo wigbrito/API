@@ -18,12 +18,11 @@
 	</properties>
 	<dependencies>
 
-		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
-<dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>12.4.2.jre11</version>
-</dependency>
+		<dependency>
+			<groupId>io.basc.framework</groupId>
+			<artifactId>sqlserver</artifactId>
+			<version>1.8.3</version>
+		</dependency>
 
 
 
