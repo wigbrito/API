@@ -1,8 +1,11 @@
-package br.com.projeto.api;
+package br.com.projeto.api.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,33 +51,48 @@ public class Controller {
     }
 
     @GetMapping("/api/contador")
-    public long contador(){
+    public long contador() {
         return acao.count();
     }
 
     @GetMapping("/api/ordenarNomes")
-    public List<Pessoa> ordenarNomes(){
+    public List<Pessoa> ordenarNomes() {
         return acao.findByOrderByNomeAsc();
     }
 
     @GetMapping("/api/ordenarNomes2")
-    public List<Pessoa> ordenarNomes2(){
+    public List<Pessoa> ordenarNomes2() {
         return acao.findByNomeOrderByIdade("William");
     }
 
     @GetMapping("/api/nomeContem")
-    public List<Pessoa> nomeContem(){
+    public List<Pessoa> nomeContem() {
         return acao.findByNomeContaining("lu");
     }
 
-       @GetMapping("/api/iniciaCom")
-    public List<Pessoa> iniciaCom(){
+    @GetMapping("/api/iniciaCom")
+    public List<Pessoa> iniciaCom() {
         return acao.findByNomeStartsWith("a");
     }
 
-       @GetMapping("/api/terminaCom")
-    public List<Pessoa> terminaCom(){
+    @GetMapping("/api/terminaCom")
+    public List<Pessoa> terminaCom() {
         return acao.findByNomeEndsWith("a");
+    }
+
+    @GetMapping("/api/somaIdades")
+    public int somaIdades() {
+        return acao.somaIdades();
+    }
+
+    @GetMapping("/api/idadeMaiorIgual")
+    public List<Pessoa> idadeMaiorIgual() {
+        return acao.idadeMaiorIgual(30);
+    }
+
+    @GetMapping("/status")
+    public ResponseEntity<?> status() {
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("")
