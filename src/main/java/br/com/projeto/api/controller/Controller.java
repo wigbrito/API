@@ -1,5 +1,6 @@
 package br.com.projeto.api.controller;
 
+import java.security.Provider.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projeto.api.model.Pessoa;
 import br.com.projeto.api.repository.RepositoryPessoa;
+import br.com.projeto.api.service.Servico;
 
 @RestController
 public class Controller {
@@ -23,9 +25,12 @@ public class Controller {
     @Autowired
     private RepositoryPessoa acao;
 
+    @Autowired
+    private Servico servico;
+
     @PostMapping("/api")
-    public Pessoa cadastrar(@RequestBody Pessoa obj) {
-        return acao.save(obj);
+    public ResponseEntity<?> cadastrar(@RequestBody Pessoa obj) {
+        return servico.cadastrar(obj);
     }
 
     @GetMapping("/api")
