@@ -47,6 +47,36 @@ public class Controller {
         acao.delete(obj);
     }
 
+    @GetMapping("/api/contador")
+    public long contador(){
+        return acao.count();
+    }
+
+    @GetMapping("/api/ordenarNomes")
+    public List<Pessoa> ordenarNomes(){
+        return acao.findByOrderByNomeAsc();
+    }
+
+    @GetMapping("/api/ordenarNomes2")
+    public List<Pessoa> ordenarNomes2(){
+        return acao.findByNomeOrderByIdade("William");
+    }
+
+    @GetMapping("/api/nomeContem")
+    public List<Pessoa> nomeContem(){
+        return acao.findByNomeContaining("lu");
+    }
+
+       @GetMapping("/api/iniciaCom")
+    public List<Pessoa> iniciaCom(){
+        return acao.findByNomeStartsWith("a");
+    }
+
+       @GetMapping("/api/terminaCom")
+    public List<Pessoa> terminaCom(){
+        return acao.findByNomeEndsWith("a");
+    }
+
     @GetMapping("")
     public String mensagem() {
         return "Hello World!";
