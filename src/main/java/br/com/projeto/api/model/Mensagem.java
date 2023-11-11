@@ -3,7 +3,7 @@ package br.com.projeto.api.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Message {
+public class Mensagem {
     public String mensagem;
 
     public String getMensagem() {
