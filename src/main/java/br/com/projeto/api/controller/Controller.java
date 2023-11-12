@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projeto.api.model.Cliente;
 import br.com.projeto.api.model.Pessoa;
 import br.com.projeto.api.repository.RepositoryPessoa;
 import br.com.projeto.api.service.Servico;
+import jakarta.validation.Valid;
 
 @RestController
 public class Controller {
@@ -96,6 +98,11 @@ public class Controller {
     @GetMapping("/status")
     public ResponseEntity<?> status() {
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/cliente")
+    public void cliente(@Valid @RequestBody Cliente obj){
+        
     }
 
     @GetMapping("")
