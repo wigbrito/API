@@ -33,4 +33,6 @@ public interface RepositoryPessoa extends CrudRepository<Pessoa, Integer> {
 
     int countByCodigo(int codigo);
 
+    
+
 }

@@ -48,4 +48,23 @@ public ResponseEntity<?> selecionarPeloCodigo(int codigo){
     }
    
 }
+
+//Metodo para editar dados
+public ResponseEntity<?> editar(Pessoa obj){
+ if(acao.countByCodigo(obj.getCodigo())==0){
+    mensagem.setMensagem("O codigo informado não existe");
+    return new ResponseEntity<>(mensagem, HttpStatus.NOT_FOUND);
+
+ }else if(obj.getNome().equals("")){
+    mensagem.setMensagem("Necessario informar o nome");
+    return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+
+ }else if(obj.getIdade()<0){
+    mensagem.setMensagem("Informe uma idade valida");
+    return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+ }
+ else{
+    return new ResponseEntity<>(acao.save(obj), HttpStatus.OK);
+ }
+}
 }
