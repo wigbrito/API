@@ -52,7 +52,7 @@ public class Controller {
 
     @DeleteMapping("/api/{codigo}")
     public ResponseEntity<?> remover(@PathVariable int codigo) {
-       return servico.remover(codigo);
+        return servico.remover(codigo);
     }
 
     @GetMapping("/api/contador")
@@ -102,7 +102,7 @@ public class Controller {
 
     @PostMapping("/cliente")
     public void cliente(@Valid @RequestBody Cliente obj){
-        
+
     }
 
     @GetMapping("")

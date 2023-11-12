@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import br.com.projeto.api.model.Cliente;
 import br.com.projeto.api.model.Mensagem;
 import br.com.projeto.api.model.Pessoa;
 import br.com.projeto.api.repository.RepositoryPessoa;
@@ -17,7 +18,6 @@ public class Servico {
 
     @Autowired
     private RepositoryPessoa acao;
-
 
     //Metodo para cadastrar pessoas
     public ResponseEntity<?> cadastrar(Pessoa obj) {
