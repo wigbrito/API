@@ -18,6 +18,8 @@ public class Servico {
     @Autowired
     private RepositoryPessoa acao;
 
+
+    //Metodo para cadastrar pessoas
     public ResponseEntity<?> cadastrar(Pessoa obj) {
 
         if (obj.getNome().equals("")) {
@@ -30,4 +32,9 @@ public class Servico {
             return new ResponseEntity<>(acao.save(obj), HttpStatus.CREATED);
         }
     }
+//Metodo para selecionar pessoas
+public ResponseEntity<?> selecionar(){
+    return new ResponseEntity<>(acao.findAll(), HttpStatus.OK);
+}
+
 }
